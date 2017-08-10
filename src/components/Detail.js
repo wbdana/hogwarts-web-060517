@@ -34,6 +34,9 @@ export default class Detail extends React.Component {
           <p>Greased? {this.props.theShittyPig.greased ? "This pig is GREASEY AF!" : "This pig is A'ight. Not SOOO greasey."}</p>
           <p>Weight: {this.props.theShittyPig[PigWeight]}</p>
           <p>Highest Medal Achieved: {this.props.theShittyPig[Medal]}</p>
+          <button class="ui button">
+          Click Here to find out what happened to this pig!
+          </button>
           </div>
           <button onClick={this.unexposePigs} class="ui bottom attached button">
           Click Here to Hide this Hog!
