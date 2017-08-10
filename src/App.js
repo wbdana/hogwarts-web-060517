@@ -6,12 +6,12 @@ import Browser from './components/Browser'
 // import Tile from './components/Tile'
 // import Detail from './components/Detail'
 
+
 class App extends React.Component {
   constructor(){
     super();
     this.PigWeight = 'weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water'
     this.Medal = 'highest medal achieved'
-
 
     this.state = {
       hogs: Hogs,
@@ -22,13 +22,19 @@ class App extends React.Component {
 
   filterByName = (event) => {
     let fromState = Object.assign([], this.state.hogs)
-      let newState = fromState.filter( (pig) => {
-        return pig.name.includes(event.target.value)
-      })
-      this.setState({
-        filteredHogs: newState
-      })
-    }
+    let newState = fromState.filter( (pig) => {
+      return pig.name.includes(event.target.value)
+    })
+    this.setState({
+      filteredHogs: newState
+    }, () => {
+      if (document.getElementById('select') !== "All Hogs") {
+        document.getElementById('select').value = "All Hogs"
+
+      }
+    })
+  }
+
 
   theShittierAFFilter = () => {
     let filterTarget = this.state.filterOption
@@ -107,7 +113,7 @@ class App extends React.Component {
           <h5> `You won't believe THESE Porkers `</h5>
           < Nav />
           <textarea onChange={this.filterByName} />
-          <select id="select"onChange={this.shittyAFFilter}>
+          <select id="select" onChange={this.shittyAFFilter}>
           <option>All Hogs</option>
           <option>Weight</option>
           <option>Show Greased</option>
