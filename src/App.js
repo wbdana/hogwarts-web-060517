@@ -112,7 +112,7 @@ class App extends React.Component {
           <option>Weight</option>
           <option>Show Greased</option>
           <option>Show UnGreased</option>
-          </select>
+          </select><br/><br/>
           < Browser allHogs={this.state.filteredHogs} />
       </div>
     )
