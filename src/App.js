@@ -15,9 +15,34 @@ class App extends React.Component {
 
     this.state = {
       hogs: Hogs,
-      filteredHogs: Hogs
+      filteredHogs: Hogs,
+      filterOption: 'All Hogs'
     }
   }
+
+  filterByName = (event) => {
+    let fromState = Object.assign([], this.state.hogs)
+      let newState = fromState.filter( (pig) => {
+        return pig.name.includes(event.target.value)
+      })
+      this.setState({
+        filteredHogs: newState
+      })
+    }
+
+  theShittierAFFilter = () => {
+    let filterTarget = this.state.filterOption
+    if (filterTarget === "Weight") {
+      this.filterByWeight()
+    } else if (filterTarget === "All Hogs") {
+      this.filterByAllHogs()
+    } else if (filterTarget === "Show Greased") {
+      this.filterByShowGreased()
+    } else if (filterTarget === "Show UnGreased") {
+      this.filterByShowUnGreased()
+    }
+  }
+
 
   shittyAFFilter = (event) => {
     let filterTarget = event.target.value
@@ -30,13 +55,13 @@ class App extends React.Component {
     } else if (filterTarget === "Show UnGreased") {
       this.filterByShowUnGreased()
     }
-
   }
 
   filterByAllHogs = () => {
     let fromState = Object.assign([], this.state.hogs)
     this.setState({
-      filteredHogs: fromState
+      filteredHogs: fromState,
+      filterOption: "All Hogs"
     }
   )}
 
@@ -46,7 +71,8 @@ class App extends React.Component {
         return b[this.PigWeight] - a[this.PigWeight]
       })
     this.setState({
-      filteredHogs: fromState
+      filteredHogs: fromState,
+      filterOption: "Weight"
     }
   )}
 
@@ -56,7 +82,8 @@ class App extends React.Component {
         return pig.greased === true
       })
     this.setState({
-      filteredHogs: newState
+      filteredHogs: newState,
+      filterOption: "Show Greased"
     }
   )}
 
@@ -66,7 +93,8 @@ class App extends React.Component {
         return pig.greased === false
       })
     this.setState({
-      filteredHogs: newState
+      filteredHogs: newState,
+      filterOption: "Show UnGreased"
     }
   )}
 
@@ -78,7 +106,8 @@ class App extends React.Component {
           <h1> Doxxed Pigs EXPOSED </h1>
           <h5> `You won't believe THESE Porkers `</h5>
           < Nav />
-          <select onChange={this.shittyAFFilter}>
+          <textarea onChange={this.filterByName} />
+          <select id="select"onChange={this.shittyAFFilter}>
           <option>All Hogs</option>
           <option>Weight</option>
           <option>Show Greased</option>
