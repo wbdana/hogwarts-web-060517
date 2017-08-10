@@ -15,6 +15,7 @@ export default class Detail extends React.Component {
         <p>Greased? {this.props.greased}</p>
         <p>Weight: {this.props.PigWeight}</p>
         <p>Highest Medal Achieved: {this.props.Medal}</p>
+        <img src={`/hog-imgs/${this.props.imageName}.jpg`} />
       </div>
     )
   }

@@ -31,7 +31,8 @@ export default class Tile extends React.Component {
       return(
         <div onClick={this.showDetail}>
           Name: {this.props.makeTile.name}<br/>
-          <img src={`/hog-imgs/${this.props.makeTile.imageName}.jpg`} /><br/><br/>
+          <img src={`/hog-imgs/${this.props.makeTile.imageName}.jpg`} className="blurred" /><br/><br/>
+          <h5>Click here to EXPOSE this pig!!</h5><br/><br/><br/><br/>
         </div>
       )
     } else {
