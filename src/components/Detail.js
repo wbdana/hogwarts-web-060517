@@ -17,15 +17,32 @@ export default class Detail extends React.Component {
     console.log("We are in details")
     console.log(this.props.theShittyPig.name)
     return(
-      <div>
-        <p>Name: {this.props.theShittyPig.name}</p>
-        <p>Specialty: {this.props.theShittyPig.specialty}</p>
-        <p>Greased? {this.props.theShittyPig.greased ? "This pig is GREASEY AF!" : "This pig is A'ight. Not SOOO greasey."}</p>
-        <p>Weight: {this.props.theShittyPig[PigWeight]}</p>
-        <p>Highest Medal Achieved: {this.props.theShittyPig[Medal]}</p>
-        <img src={`/hog-imgs/${this.props.theShittyPig.imageName}.jpg`} /> <br/><br/><br/>
-        <p onClick={this.unexposePigs}>Click here to go back and expose more pigs </p><br/>
+
+
+
+      <div className="column">
+        <div className="ui fluid card"  >
+          <div className="image">
+            <img  src={`/hog-imgs/${this.props.theShittyPig.imageName}.jpg`}/>
+          </div>
+          <div className="content" onClick={this.unexposePigs}>
+            <a className="header">{this.props.theShittyPig.name}</a>
+          </div>
+          <div class="description">
+          <p>Name: {this.props.theShittyPig.name}</p>
+          <p>Specialty: {this.props.theShittyPig.specialty}</p>
+          <p>Greased? {this.props.theShittyPig.greased ? "This pig is GREASEY AF!" : "This pig is A'ight. Not SOOO greasey."}</p>
+          <p>Weight: {this.props.theShittyPig[PigWeight]}</p>
+          <p>Highest Medal Achieved: {this.props.theShittyPig[Medal]}</p>
+          </div>
+          <button onClick={this.unexposePigs} class="ui bottom attached button">
+          Click Here to Hide this Hog!
+          </button>
+        </div>
       </div>
+
+
+
     )
   }
 }

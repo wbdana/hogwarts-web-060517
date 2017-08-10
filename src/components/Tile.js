@@ -28,11 +28,26 @@ export default class Tile extends React.Component {
   render() {
     if (this.state.singleAF === false) {
       return(
-        <div onClick={this.showDetail}>
-          Name: {this.props.makeTile.name}<br/>
-          <img src={`/hog-imgs/${this.props.makeTile.imageName}.jpg`} className="blurred" /><br/><br/>
-          <h5>Click here to EXPOSE this pig!!</h5><br/><br/><br/><br/>
-        </div>
+
+
+
+          <div className="column">
+            <div className="ui fluid card"  >
+              <div className="image">
+                <img className="blurred" src={`/hog-imgs/${this.props.makeTile.imageName}.jpg`}/>
+              </div>
+              <div className="content" onClick={this.showDetail}>
+                <a className="header">{this.props.makeTile.name}</a>
+              </div>
+              <button onClick={this.showDetail} class="ui bottom attached button">
+               <i class="add icon"></i>
+              Click Here to Expose this Hog!
+              </button>
+            </div>
+          </div>
+
+
+
       )
     } else {
       return(<Detail theShittyPig={this.state.activePig} hideDetailFUNK={this.hideDetail}/>)

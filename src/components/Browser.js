@@ -20,7 +20,7 @@ export default class Browser extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="ui four column grid">
         {this.createAllPigTiles()}
       </div>
     )
