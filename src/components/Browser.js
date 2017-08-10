@@ -21,7 +21,6 @@ export default class Browser extends React.Component {
   render() {
     return(
       <div>
-        {this.showMeSomeHogs()}
         {this.createAllPigTiles()}
       </div>
     )

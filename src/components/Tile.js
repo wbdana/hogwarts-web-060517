@@ -18,7 +18,7 @@ export default class Tile extends React.Component {
     })
   }
 
-  hideDetail = (event) => {
+  hideDetail = () => {
     this.setState({
       singleAF: false,
       activePig: []
@@ -26,7 +26,6 @@ export default class Tile extends React.Component {
   }
 
   render() {
-    console.log(this.state.activePig)
     if (this.state.singleAF === false) {
       return(
         <div onClick={this.showDetail}>
@@ -36,7 +35,7 @@ export default class Tile extends React.Component {
         </div>
       )
     } else {
-      return(<Detail theShittyPig={this.state.activePig} />)
+      return(<Detail theShittyPig={this.state.activePig} hideDetailFUNK={this.hideDetail}/>)
     }
   }
 }
